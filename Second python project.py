@@ -30,13 +30,12 @@ class DNA_Toolkit:
 
 class Kmer_make:
     def __init__(self,seq2):
-        #print ("Start program about Alignment!")
+        print ("Start program about Alignment!")
         self.seq=seq2 
         
 
     def setdata(self):
         seq=self.seq 
-        #print (f"A sequence you put on the program is : {seq}")
         Ref_dMer={}
         nn=range(1,len(seq)+1,1)
         for k in nn:
@@ -46,7 +45,6 @@ class Kmer_make:
                     Ref_dMer[Ref_Motif] += 1
                 else:
                     Ref_dMer[Ref_Motif] = 1
-        #print (f"Sequence list is : {Ref_dMer}")
         return Ref_dMer
 
 class Align_run():
@@ -84,15 +82,11 @@ def main():
     sequence="TTACG"
     Data=DNA_Toolkit()
     Count_acid_result=Data.Count_amino_acid(sequence)
-    #print (Data.Count_amino_acid(seq))
     print ("  1. Results (Count about amino acid!)")
     print ("    A = %d , C = %d , T = %d , G = %d" % (Count_acid_result['A'],Count_acid_result['C'],Count_acid_result['T'],Count_acid_result['G']))
     print ("  2. Results (GC contents(%)!)")
     #print ("GC Content (%) = {0}%".format(round(((int(Count_acid_result['G'])+int(Count_acid_result['C']))*100)/(int(Count_acid_result['C'])+int(Count_acid_result['G'])+int(Count_acid_result['A'])+int(Count_acid_result['T'])),3)))
     print (f"    GC Content (%) = {round(((int(Count_acid_result['G'])+int(Count_acid_result['C']))*100)/(int(Count_acid_result['C'])+int(Count_acid_result['G'])+int(Count_acid_result['A'])+int(Count_acid_result['T'])),3)}%")
-    #Count_acid_result=seq.Count_amino_acid()
-    #print (Count_acid_result)
-
     data = Kmer_make(Ref_sequence)
     data2 = Kmer_make(sequence)
     Ref=data.setdata()
@@ -102,8 +96,5 @@ def main():
     Results.Run_matching()
 
 main()
-
-
-
 
 
